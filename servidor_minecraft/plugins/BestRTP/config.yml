@@ -1,0 +1,331 @@
+# ========== CONFIGURACIÓN RTP (Random Teleport) ==========
+# Configuración principal del RTP
+# # ========== CONFIGURACIÓN BESTRTP (Random Teleport) ==========
+#
+#         ██████╗ ███████╗███████╗████████╗
+#         ██╔══██╗██╔════╝██╔════╝╚══██╔══╝
+#         ██████╔╝█████╗  ███████╗   ██║
+#         ██╔══██╗██╔══╝  ╚════██║   ██║
+#         ██████╔╝███████╗███████║   ██║
+#         ╚═════╝ ╚══════╝╚══════╝   ╚═╝
+#
+#            ██████╗ ████████╗██████╗
+#            ██╔══██╗╚══██╔══╝██╔══██╗
+#            ██████╔╝   ██║   ██████╔╝
+#            ██╔══██╗   ██║   ██╔═══╝
+#            ██║  ██║   ██║   ██║
+#            ╚═╝  ╚═╝   ╚═╝   ╚═╝
+#
+# Configuración del sistema RTP (Random Teleport)
+# Versión: 2.0
+# Documentación: https://github.com/zAlexc/FullAccess/wiki/RTP-Configuration (no existe XDD)
+
+rtp:
+  # Estado básico del sistema
+  enabled: true
+  permission: "bt.rtp.use"
+  bypass_cooldown_permission: "bt.rtp.bypass.cooldown"
+  bypass_cost_permission: "bt.rtp.bypass.cost"
+  bypass_delay_permission: "bt.rtp.bypass.delay"
+  command_aliases: ["rtp", "bestrtp"]
+
+  #placeholders
+  #%bestrtp_cooldown_seconds%: - Muestra los segundos que te quedan de cooldown como un número.
+  #%bestrtp_cooldown_formatted%: - Muestra el tiempo de cooldown restante formateado (ej. "5m 10s").
+  #%bestrtp_current_tier%: Muestra - el nombre (la clave) del tier que tienes asignado actualmente (ej. "default", "vip", "mvp").
+
+  # Configuración de rangos
+  range:
+    minX: -5000
+    maxX: 5000
+    minZ: -5000
+    maxZ: 5000
+    centerX: 0
+    centerZ: 0
+    radius: -1 # Radio (-1 para usar min/max X/Z, >0 para usar radio desde centro)
+
+  # Restricciones
+  cooldown: 300 # Segundos
+  max_attempts: 20 # Intentos para encontrar ubicación segura
+  cost: 100.0 # Coste de Vault
+  delay_before_teleport: 3 # Segundos de espera antes de TP
+
+  # Configuración de altura
+  y_axis:
+    min_y: 60
+    max_y: 120
+    force_spawn_height: false # ¿Forzar altura Y fija? (Actualmente no implementado así, usa min/max como rango de búsqueda)
+
+  # Seguridad
+  safety_check:
+    enabled: true
+    check_region_protection: true # Activar comprobación con WorldGuard, Towny, etc.
+    dangerous_blocks:
+      - "LAVA"
+      - "WATER" # Considerar si realmente es peligroso o si se debe permitir TP al agua
+      - "CACTUS"
+      - "FIRE"
+      - "MAGMA_BLOCK"
+      - "VOID_AIR" # Probablemente innecesario si min_y está bien configurado
+      - "SWEET_BERRY_BUSH" # Ejemplo adicional
+    require_solid_ground: true
+    solid_ground_types: # Bloques considerados suelo seguro debajo de los pies
+      - "STONE"
+      - "DIRT"
+      - "GRASS_BLOCK"
+      - "SAND"
+      - "GRAVEL"
+      - "COBBLESTONE"
+      - "NETHERRACK"
+      - "END_STONE"
+      - "PODZOL" # Ejemplo adicional
+      - "MYCELIUM" # Ejemplo adicional
+    air_space_required: 2 # Bloques de aire necesarios sobre los pies (1 = cabeza libre, 2 = 2 bloques libres)
+    radius_check: 2 # Radio (en bloques) alrededor para buscar bloques peligrosos
+
+  # Biomas
+  biomes:
+    allowed: [] # Lista de biomas permitidos (si está vacía, se permiten todos menos los denegados)
+    denied: # Lista de biomas donde NO se puede aparecer
+      - "OCEAN"
+      - "DEEP_OCEAN"
+      - "FROZEN_OCEAN"
+      - "RIVER" # Ejemplo adicional
+      - "SWAMP"
+      - "MUSHROOM_FIELDS"
+      # Añadir otros como: DEEP_LUKEWARM_OCEAN, DEEP_COLD_OCEAN, BEACH, SNOWY_BEACH, etc. si se quiere
+
+  # Mensajes (Asegúrate que todas las claves usadas en el código estén aquí)
+  messages:
+    rtp_disabled: "&c✖ El sistema RTP está desactivado globalmente en la configuración."
+    teleporting: "&aBuscando ubicación segura... (Máx. &e{max_attempts}&a intentos)" # Placeholder {attempts} no implementado en la lógica actual de msg
+    success: "&a✔ ¡Teletransporte exitoso! &7(X: &f{x}&7, Y: &f{y}&7, Z: &f{z}&7)"
+    no_safe_location: "&c✖ No se encontró ubicación segura después de &e{max_attempts} &cintentos." # Se cambió {attempts} por {max_attempts}
+    cooldown: "&c⏳ Debes esperar &e{time} &csegundos para usar RTP nuevamente."
+    world_not_allowed: "&c🌍 No puedes usar RTP en el mundo &e{world}&c."
+    world_not_found: "&c✖ No se pudo encontrar el mundo llamado '&e{world}&c'."
+    insufficient_funds: "&c💸 Necesitas &e${cost} &cpara usar RTP. &7(Tienes: &f${balance}&7)"
+    already_teleporting: "&c⚡ Ya estás en proceso de teletransporte."
+    teleport_cancelled: "&c✖ Teletransporte cancelado."
+    teleport_cancelled_move: "&c✖ Teletransporte cancelado por movimiento." # Añadido
+    delay_message: "&e⏱ Teletransportando en &c{delay} &esegundos... &7(¡No te muevas!)"
+    no_permission: "&c🔒 No tienes permiso para usar este comando."
+    searching_effect: "&7🔍 Buscando ubicación (&e{chunk_x}&7,&e{chunk_z}&7)..." # Placeholder no implementado
+    error_economy_disabled: "&c✖ La función de coste está habilitada, pero no se detectó Vault o un plugin de economía." # Añadido
+    error_economy_withdraw: "&c✖ Ocurrió un error al intentar cobrar el coste del RTP." # Añadido
+    error_generic: "&c✖ Ocurrió un error inesperado durante el proceso de RTP." # Añadido
+    invalid_command_usage: "&c✖ Uso incorrecto del comando. Usa /rtp help para ver la ayuda." # Añadido
+    title_main_success: "&6&l¡Teletransportado!" # Clave usada por LangManager.getMessage("effects.title.main", ...)
+    title_subtitle_success: "&7X: &f{x} &7Y: &f{y} &7Z: &f{z}" # Clave usada por LangManager.getMessage("effects.title.subtitle", ...)
+    actionbar_success: "&e&l➤ &6Teletransporte completado &7| &fCoords: &a{x}&7, &a{y}&7, &a{z}" # Clave usada por LangManager.getMessage("effects.actionbar.message", ...)
+    anti_spam_warning: "&c⚠ Estás usando RTP demasiado rápido. Límite: &e{limit}&c/minuto"
+
+  # Comandos ejecutados en diferentes momentos
+  commands:
+    before_teleport: # Ejecutados antes del delay/búsqueda
+      - "effect give {player} minecraft:blindness 5 1 true"
+      - "title {player} title {\"text\":\"Preparando teletransporte...\", \"color\":\"yellow\"}" # Ejemplo JSON title
+    after_teleport: # Ejecutados después de un TP exitoso
+      - "effect give {player} minecraft:regeneration 10 1 true"
+      - "effect give {player} minecraft:fire_resistance 30 0 true"
+      - "playsound minecraft:entity.ender_man.teleport master {player} ~ ~ ~ 1 1"
+    on_failure: # Ejecutados si no se encuentra ubicación segura
+      - "tell {player} &c¡Error en el teletransporte! No se encontró lugar seguro." # Mensaje directo
+      - "playsound minecraft:entity.villager.no master {player} ~ ~ ~ 1 1"
+
+# ========== CONFIGURACIÓN DE TIERS DE RTP ==========
+tiers:
+  default:
+    enabled: true
+    # permission: "bt.rtp.tier.default" # Puede omitirse o dejarse, TierManager lo trata como default
+    range: # Rango específico para este tier (sobrescribe el global si se define)
+      minX: -2500
+      maxX: 2500
+      minZ: -2500
+      maxZ: 2500
+    cooldown: 600 # Cooldown específico
+    max_attempts: 10 # Intentos específicos
+    cost: 0.0 # Coste específico
+    delay_before_teleport: 5 # Delay específico
+    biomes: # Biomas denegados específicos (sobrescribe lista global)
+      denied:
+        - "OCEAN"
+        - "DEEP_OCEAN"
+        - "RIVER" # Ejemplo: default no puede en ríos tampoco
+  vip:
+    enabled: true
+    permission: "bt.rtp.tier.vip" # Permiso para usar esta configuración
+    range:
+      minX: -5000
+      maxX: 5000
+      minZ: -5000
+      maxZ: 5000
+    cooldown: 300
+    max_attempts: 20
+    cost: 50.0
+    delay_before_teleport: 3
+    biomes:
+      denied: # VIPs sí pueden en ríos, pero no océanos/pantanos
+        - "OCEAN"
+        - "DEEP_OCEAN"
+        - "SWAMP"
+    effects: # Comandos específicos para este tier (sobrescriben los globales)
+      before_teleport:
+        - "effect give {player} minecraft:night_vision 10 1 true"
+        - "effect give {player} minecraft:blindness 5 1 true"
+        - "title {player} title {\"text\":\"§2Preparando RTP §aVIP...\", \"color\":\"yellow\"}"
+      after_teleport:
+        - "effect give {player} minecraft:speed 5 1 true"
+        - "playsound minecraft:entity.player.levelup master {player} ~ ~ ~ 0.7 1.2"
+    messages: # Mensajes específicos (sobrescriben los globales)
+      teleporting: "&b[VIP] &aBuscando ubicación VIP... (&e{max_attempts}&a intentos)" # Ejemplo
+  mvp:
+    enabled: true
+    permission: "bt.rtp.tier.mvp"
+    range:
+      minX: -7500
+      maxX: 7500
+      minZ: -7500
+      maxZ: 7500
+    cooldown: 15
+    max_attempts: 30
+    cost: 0
+    delay_before_teleport: 2
+    biomes: # MVP no puede en océanos, pantanos o islas champiñón
+      denied:
+        - "OCEAN"
+        - "DEEP_OCEAN"
+        - "SWAMP"
+        - "MUSHROOM_FIELDS"
+    effects:
+      before_teleport:
+        - "effect give {player} minecraft:invisibility 5 1 true"
+        - "effect give {player} minecraft:blindness 5 1 true"
+        - "title {player} title {\"text\":\"§dPreparando §6RTP §dMVP...\"}"
+      after_teleport:
+        - "effect give {player} minecraft:jump_boost 5 1 true"
+        - "effect give {player} minecraft:regeneration 5 2 true"
+        - "playsound minecraft:entity.experience_orb.pickup master {player} ~ ~ ~ 1 0.5"
+    messages:
+      teleporting: "&d[MVP] &aLocalizando destino premium... (&e{max_attempts}&a intentos)"
+
+# Efectos visuales y de sonido GLOBALES (Usados si el tier no los sobrescribe o define)
+# O usados por applyEffects en PlayerTeleportManager
+effects:
+  searching: # Efecto al buscar (actualmente se aplica una vez al inicio)
+    particles:
+      type: "VILLAGER_HAPPY" # Ejemplo: https://jd.papermc.io/paper/1.20/org/bukkit/Particle.html
+      count: 10
+      offset_x: 0.5
+      offset_y: 0.5
+      offset_z: 0.5
+      # speed: 0.1 # Algunas partículas usan speed
+      # data: ... # Algunas partículas usan data (ej. DUST_COLOR_TRANSITION)
+    sound:
+      type: "BLOCK_NOTE_BLOCK_HARP" # Ejemplo: https://jd.papermc.io/paper/1.20/org/bukkit/Sound.html
+      volume: 0.5
+      pitch: 1.0
+    # interval: 20 # (Ticks) - No usado actualmente, requeriría tarea repetitiva
+
+  teleport: # Efecto justo antes de desaparecer (salida)
+    particles:
+      type: "PORTAL"
+      count: 100
+      offset_x: 1.0
+      offset_y: 1.0
+      offset_z: 1.0
+    sound:
+      type: "ENTITY_ENDERMAN_TELEPORT"
+      volume: 1.0
+      pitch: 1.0
+
+  arrival: # Efecto al aparecer en el destino
+    particles:
+      type: "FIREWORK" # Necesita Spigot para fuegos artificiales
+      count: 1 # Para fuegos artificiales, count suele ser 1
+      # Offset y speed controlan la dispersión/velocidad inicial
+      offset_x: 0.1
+      offset_y: 0.1
+      offset_z: 0.1
+      speed: 0.05
+    sound:
+      type: "ENTITY_FIREWORK_ROCKET_TWINKLE"
+      volume: 1.5
+      pitch: 0.8
+
+  # Título y Actionbar GLOBALES (Mostrados después de un TP exitoso)
+  title:
+    enabled: true
+    fade_in: 10 # Ticks (0.5 seg)
+    stay: 70 # Ticks (3.5 seg)
+    fade_out: 20 # Ticks (1 seg)
+
+  actionbar:
+    enabled: true
+    # duration: 60 # No soportado directamente por Spigot actionbar
+
+# Mundos donde RTP está permitido o denegado
+worlds:
+  allowed: # Si esta lista NO está vacía, SOLO se permite en estos mundos
+    - "world"
+    - "survival"
+    - "recursos"
+    # - "world_the_end" # Ejemplo
+  denied: # Si un mundo está aquí, NUNCA se permite (tiene prioridad sobre 'allowed')
+    - "pvp_arena"
+    - "creative_flat"
+  default_allowed: false # ¿Se permite RTP en mundos no listados en 'allowed' ni 'denied'?
+
+# Configuración avanzada
+advanced:
+  async_search: true # Realizar búsqueda de ubicación en hilo asíncrono
+  chunk_load_check: true # ¿Comprobar y cargar chunks si es necesario durante la búsqueda? (Puede causar lag si es síncrono)
+  prevent_teleport_loop: true # ¿Intentar evitar teletransportar cerca del punto de partida? (No implementado)
+  log_teleports: true # ¿Registrar TPs exitosos en consola? (No implementado explícitamente, usar Debugger)
+  debug_mode: true # Activar mensajes detallados de Debugger en consola
+  # Cache (No implementado aún)
+  cache_locations: true # Habilitar caché de ubicaciones seguras
+  cache_size: 50 # Número máximo de ubicaciones a cachear
+  cache_expiry: 300 # Segundos antes de que una ubicación cacheada expire (0 para nunca)
+  teleport_blacklist: # Coordenadas X,Z exactas donde NO aparecer (formato "x,z")
+    - "0,0" # Ejemplo: no aparecer en el spawn exacto
+
+# Protección contra spam
+anti_spam:
+  max_uses_per_minute: 5 # Máximo de usos de /rtp por minuto
+  punish_after_limit: "kick {player} &[c&lSPAM] &r&cHas usado RTP demasiado rápido." # Comando a ejecutar (placeholders {player})
+  anti_spam_warning: "&c⚠ Estás usando RTP demasiado rápido. Límite: &e{limit}&c/minuto" # Placeholder {limit}
+  exempt_permission: "bt.rtp.bypass.spam" # Permiso para ignorar el límite
+
+# Configuración de hooks (auto-detectados si el plugin está presente y la opción es true)
+hooks:
+  hooks:
+    vault: true
+    placeholderapi: true
+    worldguard: true
+    # Si 'allowed_rtp_regions' NO está vacía, el RTP SOLO se permitirá DENTRO de regiones listadas aquí
+    # (y que además pasen las comprobaciones de flags como entry/build).
+    # ¡Esta lista tiene PRIORIDAD sobre la lista 'denied'!
+    allowed_rtp_regions: []
+    # Ejemplo de uso (Whitelist):
+    # allowed_rtp_regions:
+    #  - "zona_rtp_principal"
+    #  - "wilderness_survival"
+
+    # Si 'allowed_rtp_regions' ESTÁ VACÍA, entonces se permiten todas las regiones
+    # EXCEPTO las que estén listadas aquí abajo en 'denied_rtp_regions'.
+    denied_rtp_regions:
+      - "spawn"
+      - "ciudad_protegida"
+      - "arena_pvp"
+    # --- FIN LÍNEAS A AÑADIR ---
+
+  towny: true # No implementado aún
+  griefprevention: true # No implementado aún
+  plot_squared: true # No implementado aún
+
+# Opciones de depuración específicas (controladas por advanced.debug_mode)
+debug:
+  show_search_process: true # ¿Mostrar cada intento de coordenadas en Debugger.log?
+  log_failed_locations: true # ¿Registrar en Debugger.log por qué falló cada ubicación intentada?
+  show_timing: true # ¿Mostrar tiempo de búsqueda en Debugger.log? (No implementado)

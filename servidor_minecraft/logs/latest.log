@@ -1,0 +1,20 @@
+[20:55:26] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.9+10-Ubuntu-124.04; Ubuntu null) on Linux 6.8.0-1030-azure (amd64)
+[20:55:26] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21-130-master@b1b5d4c (2024-08-10T10:02:42Z) for Minecraft 1.21
+[20:55:26] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[20:55:27] [ServerMain/INFO]: [PluginInitializerManager] Initialized 35 plugins
+[20:55:27] [ServerMain/INFO]: [PluginInitializerManager] Paper plugins (2):
+ - FancyHolograms (2.9.0), FancyNpcs (2.9.0)
+[20:55:27] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (33):
+ - BestRTP (1.0), Chunky (1.4.40), ChunkyBorder (1.2.23), ConditionalEvents (4.73.2), EasyCommandBlocker (1.16.1), FastAsyncWorldEdit (2.14.3+a29a58a), FlyPlus (3.4.3), Geyser-Spigot (2.9.2-SNAPSHOT), LobbySpawn (2.1), LuckPerms (5.5.22), MiniMOTD (2.1.2), Multiverse-Core (5.4.0), Multiverse-Inventories (5.3.0), Orebfuscator (5.5.7), PerWorldPlugins (1.5.9), PhoenixCratesLite (4.3.4), PlaceholderAPI (2.11.7), PlayerKits2 (1.21.1), ProtectionStones (2.10.5), ProtocolLib (5.4.0), SetSpawn (5.5.1), SkinsRestorer (15.9.2), StaffPlusPlus (1.21.8), TAB (5.4.0), Vault (1.7.3-b131), ViaBackwards (5.7.1-SNAPSHOT), ViaVersion (5.7.0), VoidTeleport (2.4.5), WorldGuard (7.0.12+829a4a4), XConomy (2.26.3), floodgate (2.2.5-SNAPSHOT (b126-096c605)), nLogin (2.0.7), zMenu (1.1.0.7)
+[20:55:31] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[20:55:31] [ServerMain/ERROR]: Failed to start the minecraft server
+net.minecraft.util.DirectoryLock$LockException: /workspaces/Host/servidor_minecraft/./world/session.lock: already locked (possibly by other Minecraft instance?)
+	at net.minecraft.util.DirectoryLock$LockException.alreadyLocked(DirectoryLock.java:100) ~[paper-1.21.jar:1.21-130-b1b5d4c]
+	at net.minecraft.util.DirectoryLock.create(DirectoryLock.java:30) ~[paper-1.21.jar:1.21-130-b1b5d4c]
+	at net.minecraft.world.level.storage.LevelStorageSource$LevelStorageAccess.<init>(LevelStorageSource.java:522) ~[paper-1.21.jar:1.21-130-b1b5d4c]
+	at net.minecraft.world.level.storage.LevelStorageSource.validateAndCreateAccess(LevelStorageSource.java:428) ~[paper-1.21.jar:1.21-130-b1b5d4c]
+	at net.minecraft.server.Main.main(Main.java:198) ~[paper-1.21.jar:1.21-130-b1b5d4c]
+	at io.papermc.paper.PaperBootstrap.boot(PaperBootstrap.java:21) ~[paper-1.21.jar:1.21-130-b1b5d4c]
+	at org.bukkit.craftbukkit.Main.main(Main.java:281) ~[paper-1.21.jar:1.21-130-b1b5d4c]
+	at io.papermc.paperclip.Paperclip.lambda$main$0(Paperclip.java:42) ~[app:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]

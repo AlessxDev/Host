@@ -1,0 +1,30 @@
+name: '#a300fb&lK#c128ba&lE#df517a&lY#fd7939&lS'
+size: 45
+items:
+  btn-0:
+    item:
+      material: BLACK_STAINED_GLASS_PANE
+    slots:
+      - 0
+      - 8
+      - 44
+  btn-1:
+    item:
+      material: LIME_STAINED_GLASS_PANE
+    slots:
+      - 1
+      - 7
+      - 9
+      - 17
+      - 27
+      - 35
+      - 37
+      - 43
+  atras:
+    slot: 36
+    consoleCommands: 
+    - "zmenu open zmenu:shop %player%"
+    item:
+      material: ARROW
+      name: "#fb0000&lA#fc1212&lT#fc2424&lR#fd3636&lA#fd4848&lS"
+      lore: "#eeeeee¡Click para volver a la tienda!"

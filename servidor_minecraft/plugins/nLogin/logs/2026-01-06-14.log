@@ -1,0 +1,16 @@
+[2026/01/06 18:39:54 INFO]:           __             _       
+[2026/01/06 18:39:54 INFO]:   _ __   / /  ___   __ _(_)_ __  
+[2026/01/06 18:39:54 INFO]:  | '_ \ / /  / _ \ / _` | | '_ \ 
+[2026/01/06 18:39:54 INFO]:  | | | / /__| (_) | (_| | | | | |
+[2026/01/06 18:39:54 INFO]:  |_| |_\____/\___/ \__, |_|_| |_|
+[2026/01/06 18:39:54 INFO]:                   |___/            
+[2026/01/06 18:39:54 INFO]:  By: www.nickuc.com - V 2.0.7
+[2026/01/06 18:39:54 INFO]:  
+[2026/01/06 18:39:55 DEBUG]: Loading the messages_es.yml message file...
+[2026/01/06 18:39:55 DEBUG]: Messages were loaded in 118 ms (single file).
+[2026/01/06 18:39:55 DEBUG]: Settings were loaded in 249 ms.
+[2026/01/06 18:39:55 DEBUG]: Loading database...
+[2026/01/06 18:39:55 DEBUG]: Starting logger filter...
+[2026/01/06 19:18:25 DEBUG]: [SQLite] [UPDATE]: "UPDATE `nlogin` SET `last_name` = 'zAlexc_', `unique_id` = 992378232eda3f42a2f66e14760fa4c6,  `mojang_id` = null,  `bedrock_id` = null,  `password` = '$argon2id$v=19$m=32768,t=5,p=1$eQgSf8zM1s1TOFDeyUzvjQ$jcYSaSzA5z6dcUmO1Okr9E1Voo2M1OhYJSuEQezz2Cg', `last_ip` = '127.87.150.140', `creation_date` = 2026-01-05 23:13:58.429, `last_seen` = 2026-01-06 19:18:25.562, `email` = null, `discord` = null, `settings` = '{"settings":[{"value":"es","key":"language"}],"version":0}' WHERE `ai` = 4" (applied to [last_ip, last_seen, settings] columns)
+[2026/01/06 19:18:25 INFO]: The user zAlexc_ has successfully logged in.
+[2026/01/06 19:18:28 DEBUG]: [SQLite] [UPDATE]: "UPDATE `nlogin` SET `last_name` = 'zAlexc_', `unique_id` = 992378232eda3f42a2f66e14760fa4c6,  `mojang_id` = null,  `bedrock_id` = null,  `password` = '$argon2id$v=19$m=32768,t=5,p=1$eQgSf8zM1s1TOFDeyUzvjQ$jcYSaSzA5z6dcUmO1Okr9E1Voo2M1OhYJSuEQezz2Cg', `last_ip` = '127.87.150.140', `creation_date` = 2026-01-05 23:13:58.429, `last_seen` = 2026-01-06 19:18:28.391, `email` = null, `discord` = null, `settings` = '{"settings":[{"value":"es","key":"language"}],"version":0}' WHERE `ai` = 4" (applied to [last_seen, settings] columns)

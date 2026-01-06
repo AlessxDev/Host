@@ -1,0 +1,194 @@
+# commands.yml - customize command names, aliases and permissions without recompiling.
+# Copy to plugins/LobbySpawn/commands.yml (or edit resources and re-deploy).
+#
+# To enable an item that is currently "quoted out" (commented):
+#  - remove the leading '#' for the lines you want to enable (preserve indentation).
+#  - save the file and run /lobbyreload (or restart the server) to apply changes.
+#
+# IMPORTANT:
+#  - YAML comments start with '#'. Uncomment by removing '#' from the start of the line.
+#  - Use spaces for indentation (2 spaces recommended). Do NOT use tabs.
+#  - If you add a permission here, the plugin will register it on plugin load. To fully remove
+#    a previously registered permission, restart the server after removing the block.
+#
+# Structure summary (examples below):
+#  permissions:
+#    <key>:
+#      node: <permission.node>
+#      description: <text shown in permission list>
+#      default: <op|true|false|PermissionDefault>
+#
+#  commands:
+#    <logical-key>:
+#      names: [ primaryName, alias1, alias2 ]
+#      permission: <permission.node>
+#      description: <short description>
+#      usage: <usage string>
+#
+#  events:
+#    <event-key>:
+#      permission: <permission.node>
+#      require: true|false
+#
+###################################################################################################
+permissions:
+  # Core permissions (recommended defaults — active)
+  lobby.admin:
+    node: lobby.admin
+    description: "Allows full administration of the lobby plugin (set/reload/align)"
+    default: op
+
+  lobby.use:
+    node: lobby.use
+    description: "Allows using /lobby or /ls to teleport to lobby"
+    default: true
+
+  # Optional permission blocks are provided below commented out.
+  # Uncomment any you want registered by the plugin at load time.
+
+  # lobby.teleport.join:
+  #   node: lobby.teleport.join
+  #   description: "Controls whether a player can be teleported automatically on join"
+  #   default: op
+
+  # lobby.teleport.command:
+  #   node: lobby.teleport.command
+  #   description: "Controls whether a player can use the /lobby command to teleport"
+  #   default: true
+
+  # lobby.set:
+  #   node: lobby.set
+  #   description: "Permission required to set the lobby via /lset or /setlobby"
+  #   default: op
+
+  # lobby.reload:
+  #   node: lobby.reload
+  #   description: "Permission required to reload the plugin config/messages/commands"
+  #   default: op
+
+  # lobby.align:
+  #   node: lobby.align
+  #   description: "Permission required to align lobby yaw/coordinates"
+  #   default: op
+
+  # lobby.store-quits:
+  #   node: lobby.store-quits
+  #   description: "Control storing players' last locations on quit (player data file creation)"
+  #   default: true
+
+  # lobby.teleport.join.bypass:
+  #   node: lobby.teleport.join.bypass
+  #   description: "Allows players to be teleported on join even if other restrictions would apply"
+  #   default: op
+
+###################################################################################################
+commands:
+  # Active default command entries (recommended — left uncommented)
+  lobby:
+    names: [ "lobby", "ls","hub" ]          # primary 'lobby', alias 'ls'
+    permission: lobby.use            # required node to run /lobby
+    description: "Teleport to the lobby"
+    usage: "/lobby [set|reload|align]"
+
+  lset:
+    names: [ "lset", "setlobby" ]
+    permission: lobby.admin
+    description: "Set the lobby location"
+    usage: "/lset"
+
+  lobbyreload:
+    names: [ "lobbyreload" ]
+    permission: lobby.admin
+    description: "Reload the lobby plugin config and commands"
+    usage: "/lobbyreload"
+
+  # Optional commands (commented out). Uncomment entire blocks to enable/register them.
+  # Note: if a command name is already registered by another plugin, registration may fail.
+
+  # example-custom:
+  #   names: [ "example", "ex" ]
+  #   permission: example.use
+  #   description: "A custom example command; uncomment to register"
+  #   usage: "/example"
+
+###################################################################################################
+# Events section: each event key maps to a behavioural point in the plugin.
+# - permission: the node to check when the event would perform its action.
+# - require: when true the permission is REQUIRED for the plugin to perform the action.
+#           when false the plugin will perform the action regardless of that node (but you can still
+#           add the node for management / informational purposes).
+#
+# The owner can uncomment event entries to register permissions for those runtime checks.
+# When require: true, the plugin will block the action for players who do not have the node.
+#
+events:
+  # Default example: join-teleport event (active but require=false by default)
+  join-teleport:
+    permission: lobby.teleport.join
+    require: false
+
+  # Optional event permissions are provided commented-out below. Uncomment to register nodes
+  # and potentially enable require:true if you want the server to enforce those nodes.
+
+  # command-teleport:
+  #   # Controls permission to teleport via command (/lobby)
+  #   permission: lobby.teleport.command
+  #   require: false
+
+  # setlobby:
+  #   # Controls permission to set the lobby location via /lset or /setlobby
+  #   permission: lobby.set
+  #   require: true
+
+  # reload:
+  #   # Controls who can run /lobbyreload or reload commands via plugin UI
+  #   permission: lobby.reload
+  #   require: true
+
+  # align:
+  #   # Controls alignment command permission
+  #   permission: lobby.align
+  #   require: true
+
+  # player-quit-store:
+  #   # Controls storing player's last location when they quit (players.yml)
+  #   permission: lobby.store-quits
+  #   require: false
+
+  # blacklisted-skip:
+  #   # If provided, a bypass permission can be used to override blacklisted-world skipping
+  #   permission: lobby.teleport.join.bypass
+  #   require: false
+
+  # world-command-disable:
+  #   # Permission to bypass the "commands disabled in blacklisted world" block
+  #   permission: lobby.teleport.join.bypass
+  #   require: false
+
+  # world-not-found:
+  #   # Informational permission for who receives "world not found" admin notices
+  #   permission: lobby.reload
+  #   require: false
+
+###################################################################################################
+# QUICK HOW-TO (uncommenting examples)
+#
+# 1) Enable the join-teleport permission to be registered:
+#    - Remove '#' before the "lobby.teleport.join:" block under "permissions"
+#    - Optionally change default from 'op' to 'true' or 'false'
+#    - Save file, run /lobbyreload or restart server
+#
+# 2) Make join-teleport require the permission:
+#    - After registering the permission, under "events" remove '#' for "join-teleport"
+#    - Change require: false -> require: true
+#    - Save and /lobbyreload (players without node will not be teleported on join)
+#
+# 3) Add an alias to /lobby:
+#    - Edit names: [ "lobby", "ls", "spawn" ] under the lobby command block
+#    - Save and /lobbyreload (or restart)
+#
+# NOTE about removing permissions:
+#  - Removing a permission block from this file stops the plugin from re-registering it on next load.
+#  - The server PermissionManager may still contain the permission until server restart; restart to fully clear.
+#
+# End of file

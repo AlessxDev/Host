@@ -1,0 +1,99 @@
+version: 2 # DO NOT CHANGE
+holograms:
+  comu:
+    type: TEXT
+    location:
+      world: spawnsurvi
+      x: -4.597596645355225
+      y: 93.0
+      z: 31.927396774291992
+      yaw: -91.82129
+      pitch: -9.050507
+    visibility_distance: 80
+    visibility: ALL
+    persistent: true
+    scale_x: 2.0
+    scale_y: 2.0
+    scale_z: 2.0
+    translation_x: 0.0
+    translation_y: 0.0
+    translation_z: 0.0
+    shadow_radius: 0.0
+    shadow_strength: 1.0
+    text:
+    - '&#00ff40&lC&#01fb41&lO&#03f641&lF&#04f242&lR&#05ed42&lE &#07e943&lC&#08e443&lO&#09e044&lM&#0bdb44&lU&#0cd745&lN&#0dd245&lI&#0fce46&lT&#10c946&lA&#11c547&lR&#13c047&lI&#14bc48&lO'
+    - ''
+    - ↓
+    text_shadow: false
+    see_through: false
+    text_alignment: center
+    update_text_interval: -1
+    background: transparent
+    block_brightness: 15
+    sky_brightness: 15
+  wlcsurvi:
+    type: TEXT
+    location:
+      world: spawnsurvi
+      x: 1.454177975654602
+      y: 95.0
+      z: 22.657459259033203
+      yaw: -176.54346
+      pitch: 30.0
+    visibility_distance: 30
+    visibility: ALL
+    persistent: true
+    scale_x: 3.0
+    scale_y: 3.0
+    scale_z: 3.0
+    translation_x: 0.0
+    translation_y: 0.0
+    translation_z: 0.0
+    shadow_radius: 0.0
+    shadow_strength: 1.0
+    text:
+    - '&f¡Bienvenido a la modalidad &#18D72D&l&nS&#19D24A&l&nM&#1BCD67&l&nP&r &#1EC4A2&l&nC&#1FBFBF&l&nU&#1FBFBF&l&nS&#1FBFBF&l&nT&#1FBFBF&l&nO&#1FBFBF&l&nM&r!'
+    - '&#8bffb6Disfruta de esta modalidad al Cien explorando'
+    - '&#8bffb6Biomas únicos, Combates inigualables, Coliseos'
+    - '&#8bffb6Grandiosos, Dungeons difíciles, etc'
+    - '&#8bffb6¿Quieres averiguarlo/descubrir más?, hazlo tú mismo,'
+    - '&#8bffb6¿Qué esperas para hacerlo?'
+    - '&#8bffb6'
+    - '&#8bffb6↓↓↓↓↓'
+    text_shadow: false
+    see_through: false
+    text_alignment: center
+    update_text_interval: -1
+    billboard: fixed
+    background: transparent
+    block_brightness: 15
+    sky_brightness: 15
+  BlockCraft:
+    type: TEXT
+    location:
+      world: spawn
+      x: -39.33441162109375
+      y: 80.0
+      z: 0.5328188538551331
+      yaw: -179.0
+      pitch: 19.928684
+    visibility_distance: 100
+    visibility: ALL
+    persistent: true
+    scale_x: 9.0
+    scale_y: 9.0
+    scale_z: 9.0
+    translation_x: 0.0
+    translation_y: 0.0
+    translation_z: 0.0
+    shadow_radius: 0.0
+    shadow_strength: 1.0
+    text:
+    - '&r¡Bienvenido a &#00fb4e&l&nB&#05f861&l&nL&#09f475&l&nO&#0ef188&l&nC&#13ee9c&l&nK&#17eaaf&l&nC&#1ce7c3&l&nR&#21e4d6&l&nA&#25e0ea&l&nF&#2addfd&l&nT&r!'
+    - '&#8bffb6Disfruta de tu estadía en un servidor sin límites.'
+    - '&#8bffb6Varias modalidades, eventos constantes'
+    - '&#8bffb6y un lugar donde cada conexión vale la pena.'
+    text_shadow: false
+    see_through: false
+    text_alignment: center
+    update_text_interval: -1

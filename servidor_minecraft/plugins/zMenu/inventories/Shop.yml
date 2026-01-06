@@ -1,0 +1,70 @@
+name: '#c00bd6&lT#cc0fc3&lI#d814b0&lE#e5189d&lN#f11d8a&lD#fd2177&lA'
+size: 45
+items:
+  deco1:
+    item:
+      material: BLACK_STAINED_GLASS_PANE
+      name: ""
+    slots:
+      - 0
+      - 8
+      - 44
+  deco2:
+    item:
+      material: LIME_STAINED_GLASS_PANE
+      name: ""
+    slots:
+      - 1
+      - 7
+      - 9
+      - 17
+      - 27
+      - 35
+      - 37
+      - 43
+  atras:
+    slot: 36
+    item:
+      material: ARROW
+      name: "#fb0000&lS#fc1212&lA#fc2424&lL#fd3636&lI#fd4848&lR"
+      lore: "#eeeeee¡Click para salir de la tienda!"
+    close-inventory: true
+    refresh-on-click: true
+
+  protes:
+    slot: 21
+    consoleCommands: 
+    - "zmenu open zmenu:protes %player%"
+    item:
+      material: COAL_ORE
+      name: "#00fb4e&lP#04f85e&lR#08f66e&lO#0bf37e&lT#0ff08e&lE#13ed9e&lC#17ebad&lC#1be8bd&lI#1fe5cd&lO#22e2dd&lN#26e0ed&lE#2addfd&lS"
+      lore: 
+      - "#eeeeee¡Bloque misterioso que permite"
+      - "#eeeeeeproteger tu terreno!"
+      - ""
+      - "&8➔ #eeeeee¡Click para ver los precios!"
+  keys:
+    slot: 22
+    consoleCommands: 
+    - "zmenu open zmenu:keys %player%"
+    item:
+      material: TRIPWIRE_HOOK
+      name: "#007bfb&lK#0e9cfc&lE#1cbcfc&lY#2addfd&lS"
+      lore: 
+      - "#eeeeee¡Llaves que aguardan una"
+      - "#eeeeeejugosa recompensa!"
+      - ""
+      - "&8➔ #eeeeee¡Click para ver los precios!"
+  cmd:
+    slot: 23
+    consoleCommands: 
+    - "zmenu open zmenu:cmds %player%"
+    item:
+      material: FIREWORK_ROCKET
+      name: "#effb00&lC#f0f706&lO#f1f30c&lM#f2ef12&lA#f3eb18&lN#f3e61e&lD#f4e224&lO#f5de2a&lS#f6da30&l/#f7d635&lP#f8d23b&lE#f9ce41&lR#faca47&lM#fac54d&lI#fbc153&lS#fcbd59&lO#fdb95f&lS"
+      lore: 
+      - "#eeeeeeComandos o Permisos que"
+      - "#eeeeeete ayudaran a avanzar más"
+      - "#eeeeeerápido."
+      - ""
+      - "&8➔ #eeeeee¡Click para ver los precios!"

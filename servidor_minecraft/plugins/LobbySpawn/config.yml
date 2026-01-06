@@ -1,0 +1,15 @@
+# This is the config.yml, do /lobby reload in the server to load these configurations.
+# Also help me on improving my plugins by rating on SpigotMC, I really appreciate your help :')
+
+lobby:
+  set: true # When true, the lobby location is enforced on join. Admins must call /lobby set or /setlobby to enable.
+  world: spawn
+  x: 0.5
+  y: 70.0
+  z: 0.5
+  pitch: 0.34553248
+  yaw: 88.58829
+
+# Worlds listed here will not force-teleport players to the lobby if they left the server while inside them.
+# Example: blacklist-worlds: [ "minigames", "nether" ]
+blacklist-worlds: []

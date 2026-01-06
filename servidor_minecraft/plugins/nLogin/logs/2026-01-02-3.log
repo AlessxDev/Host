@@ -1,0 +1,18 @@
+[2026/01/02 22:28:02 INFO]:           __             _       
+[2026/01/02 22:28:02 INFO]:   _ __   / /  ___   __ _(_)_ __  
+[2026/01/02 22:28:02 INFO]:  | '_ \ / /  / _ \ / _` | | '_ \ 
+[2026/01/02 22:28:02 INFO]:  | | | / /__| (_) | (_| | | | | |
+[2026/01/02 22:28:02 INFO]:  |_| |_\____/\___/ \__, |_|_| |_|
+[2026/01/02 22:28:02 INFO]:                   |___/            
+[2026/01/02 22:28:02 INFO]:  By: www.nickuc.com - V 2.0.7
+[2026/01/02 22:28:02 INFO]:  
+[2026/01/02 22:28:02 DEBUG]: Loading the messages_es.yml message file...
+[2026/01/02 22:28:02 DEBUG]: Messages were loaded in 109 ms (single file).
+[2026/01/02 22:28:02 DEBUG]: Settings were loaded in 243 ms.
+[2026/01/02 22:28:02 DEBUG]: Loading database...
+[2026/01/02 22:28:02 DEBUG]: Starting logger filter...
+[2026/01/02 22:29:03 DEBUG]: [SQLite] [UPDATE]: "UPDATE `nlogin` SET `last_name` = 'Cerxh_', `unique_id` = fd3429516e6b3e8181bcf3ad00b8b875,  `mojang_id` = null,  `bedrock_id` = null,  `password` = '$argon2id$v=19$m=32768,t=5,p=1$62QbMZ+PMv/3WzmLw8P0sQ$Ehcq6FF7olfyaBjp3hchFOm/vysxxBKXFITdT6Ly/WI', `last_ip` = '127.124.107.152', `creation_date` = 2026-01-02 21:55:42.706, `last_seen` = 2026-01-02 22:29:03.336, `email` = null, `discord` = null, `settings` = null WHERE `ai` = 1" (applied to [last_ip, last_seen, settings] columns)
+[2026/01/02 22:29:03 INFO]: The user Cerxh_ has successfully logged in.
+[2026/01/02 22:29:30 DEBUG]: [SQLite] [UPDATE]: "UPDATE `nlogin` SET `last_name` = 'mr_tocino', `unique_id` = 07f2bcc0afce3b3c8fb79d37f0545e6f,  `mojang_id` = null,  `bedrock_id` = null,  `password` = '$argon2id$v=19$m=32768,t=5,p=1$UDgqSgkgeqAY9rOmcpfylQ$spC3Uf5GCqWXiFeRmf1LCf1famzMyzuIwG0IOqDliJA', `last_ip` = '127.226.215.159', `creation_date` = 2026-01-02 22:16:36.832, `last_seen` = 2026-01-02 22:29:30.951, `email` = null, `discord` = null, `settings` = null WHERE `ai` = 2" (applied to [last_ip, last_seen, settings] columns)
+[2026/01/02 22:29:30 INFO]: The user mr_tocino has successfully logged in.
+[2026/01/02 22:47:07 INFO]: Successful plugin core shutdown (took 0.00s)
