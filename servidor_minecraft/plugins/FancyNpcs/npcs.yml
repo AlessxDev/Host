@@ -1,0 +1,136 @@
+npcs:
+  fe6c692c-30a0-4566-81fc-13025b5dd22a:
+    name: survival
+    creator: fd342951-6e6b-3e81-81bc-f3ad00b8b875
+    displayName: '&#18D72D&lS&#19D24A&lM&#1BCD67&lP &#1EC4A2&lC&#1FBFBF&lU&#1FBFBF&lS&#1FBFBF&lT&#1FBFBF&lO&#1FBFBF&lM'
+    type: PLAYER
+    location:
+      world: spawn
+      x: -40.5
+      y: 68.0
+      z: 0.5
+      yaw: -89.79187
+      pitch: 0.040978637
+    showInTab: false
+    spawnEntity: true
+    collidable: true
+    glowing: false
+    glowingColor: aqua
+    turnToPlayer: true
+    turnToPlayerDistance: 10
+    interactionCooldown: 0.0
+    scale: 1.0
+    visibility_distance: 2147483647
+    skin:
+      identifier: surv.png
+      variant: SLIM
+      mirrorSkin: false
+    actions:
+      ANY_CLICK:
+        '1':
+          action: console_command
+          value: mvtp {player} spawnsurvi
+  9d535bbc-6126-478d-ac41-e31b03eded4d:
+    name: proximamente2
+    creator: fd342951-6e6b-3e81-81bc-f3ad00b8b875
+    displayName: Proximamente
+    type: PLAYER
+    location:
+      world: spawn
+      x: -38.5
+      y: 68.0
+      z: 12.5
+      yaw: -89.78418
+      pitch: 0.040931072
+    showInTab: false
+    spawnEntity: true
+    collidable: true
+    glowing: true
+    glowingColor: dark_red
+    turnToPlayer: true
+    turnToPlayerDistance: 10
+    interactionCooldown: 0.0
+    scale: 1.0
+    visibility_distance: -1
+    skin:
+      mirrorSkin: false
+      identifier: blocked.png
+      variant: AUTO
+  f7a27832-7432-44c4-b6b3-cd0668c787d5:
+    name: Proximamente
+    creator: 7f029dae-2573-3921-aff8-978b9e6178e1
+    displayName: Proximamente
+    type: PLAYER
+    location:
+      world: spawn
+      x: -39.5
+      y: 68.0625
+      z: 6.5
+      yaw: -88.63626
+      pitch: -0.020452969
+    showInTab: false
+    spawnEntity: true
+    collidable: true
+    glowing: true
+    glowingColor: dark_red
+    turnToPlayer: true
+    turnToPlayerDistance: 10
+    interactionCooldown: 0.0
+    scale: 1.0
+    visibility_distance: -1
+    skin:
+      mirrorSkin: false
+      identifier: blocked.png
+      variant: AUTO
+  9bb7fa5a-a515-4e2b-b8df-3201a5752d43:
+    name: Proximamente4
+    creator: 7f029dae-2573-3921-aff8-978b9e6178e1
+    displayName: Proximamente
+    type: PLAYER
+    location:
+      world: spawn
+      x: -38.5
+      y: 68.0625
+      z: -11.5
+      yaw: -89.17804
+      pitch: 0.3278268
+    showInTab: false
+    spawnEntity: true
+    collidable: true
+    glowing: true
+    glowingColor: dark_red
+    turnToPlayer: true
+    turnToPlayerDistance: 10
+    interactionCooldown: 0.0
+    scale: 1.0
+    visibility_distance: -1
+    skin:
+      mirrorSkin: false
+      identifier: blocked.png
+      variant: AUTO
+  d2e983da-1237-41f1-b918-128724f97a39:
+    name: event
+    creator: fd342951-6e6b-3e81-81bc-f3ad00b8b875
+    displayName: '&#D41B1B&lE&#CD1C3D&lV&#C61E5E&lE&#BF1F80&lN&#BF1F80&lT&#BF1F80&lO&#BF1F80&lS'
+    type: PLAYER
+    location:
+      world: spawn
+      x: -39.5
+      y: 68.0625
+      z: -5.5
+      yaw: -89.226685
+      pitch: 0.040947
+    showInTab: false
+    spawnEntity: true
+    collidable: true
+    glowing: false
+    glowingColor: white
+    turnToPlayer: true
+    turnToPlayerDistance: 10
+    interactionCooldown: 0.0
+    scale: 1.0
+    visibility_distance: 2147483647
+    skin:
+      identifier: mr_tocino
+      variant: AUTO
+      mirrorSkin: false

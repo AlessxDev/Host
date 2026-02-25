@@ -1,0 +1,102 @@
+name: '#fbdb00&lC#fbd504&lO#fbcf07&lM#fbc90b&lA#fcc30e&lN#fcbc12&lD#fcb615&lO#fcb019&lS #fcaa1d&l/ #fca420&lP#fc9e24&lE#fc9827&lR#fd922b&lM#fd8b2e&lI#fd8532&lS#fd7f35&lO#fd7939&lS'
+size: 45
+items:
+  btn-0:
+    item:
+      material: BLACK_STAINED_GLASS_PANE
+    slots:
+      - 0
+      - 8
+      - 44
+  btn-1:
+    item:
+      material: LIME_STAINED_GLASS_PANE
+    slots:
+      - 1
+      - 7
+      - 9
+      - 17
+      - 27
+      - 35
+      - 37
+      - 43
+  fly:
+    slot: 11
+    view-requirement:
+      requirements:
+        - type: permission
+          permission: "fly.toggle"
+    item:
+      material: NETHER_STAR
+      name: "#e1ecfb&lAcceso a /fly"
+      lore:
+      - "#eeeeeeAl comprar esto tendras acceso"
+      - "#eeeeeeal comando #b8c1cd&l/fly &r#eeeeeepor siempre."
+      - ""
+      - "&8➔ #eeeeeePrecio: #22fb72$100.000!"
+      - ""
+      - "&8➔ #fb3636¡Ya tienes acceso a este comando!"
+    sound: BLOCK_NOTE_BLOCK_PLING
+    pitch: 0.1
+    volume: 0.7
+    messages:
+      - "#00fb4e&lB#05f861&lL#09f475&lO#0ef188&lC#13ee9c&lK#17eaaf&lC#1ce7c3&lR#21e4d6&lA#25e0ea&lF#2addfd&lT &r#fb3636¡Ya tienes acceso a este comando!"
+    update: true
+    updateMasterButton: true
+    refreshOnClick: true
+    else:
+      view-requirement:
+        requirements:
+          - type: placeholder
+            placeholder: "%vault_eco_balance%"
+            value: "100000"
+            action: "SUPERIOR_OR_EQUAL"
+      consoleCommands:
+      - "eco take %player% 100000"
+      - "lp user %player% permission set fly.toggle"
+      messages:
+      - "#00fb4e&lB#05f861&lL#09f475&lO#0ef188&lC#13ee9c&lK#17eaaf&lC#1ce7c3&lR#21e4d6&lA#25e0ea&lF#2addfd&lT &r#eeeeee¡Ahora tienes acceso a /fly!"
+      update: true
+      updateMasterButton: true
+      refreshOnClick: true
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      pitch: 0.1
+      volume: 0.7
+      item:
+        material: NETHER_STAR
+        name: "#e1ecfb&lAcceso a /fly"
+        lore:
+        - "#eeeeeeAl comprar esto tendras acceso"
+        - "#eeeeeeal comando #b8c1cd&l/fly &r#eeeeeepor siempre."
+        - ""
+        - "&8➔ #eeeeeePrecio: #22fb72$100.000!"
+        - ""
+        - "&8➔ #eeeeee¡Click para comprar!"
+      else:
+        update: true
+        updateMasterButton: true
+        refreshOnClick: true
+        sound: BLOCK_NOTE_BLOCK_PLING
+        pitch: 0.1
+        volume: 0.7
+        messages:
+        - "#00fb4e&lB#05f861&lL#09f475&lO#0ef188&lC#13ee9c&lK#17eaaf&lC#1ce7c3&lR#21e4d6&lA#25e0ea&lF#2addfd&lT &r#fb3636¡No tienes suficiente dinero!"
+        item:
+          material: NETHER_STAR
+          name: "#e1ecfb&lAcceso a /fly"
+          lore:
+          - "#eeeeeeAl comprar esto tendras acceso"
+          - "#eeeeeeal comando #b8c1cd&l/fly &r#eeeeeepor siempre."
+          - ""
+          - "&8➔ #eeeeeePrecio: #22fb72$100.000!"
+          - ""
+          - "&8➔ #fb3636¡No tienes suficiente dinero!"
+          - "&8➔ #fb3636Solo tienes #fb0909$%vault_eco_balance%#fb3636."
+  atras:
+    slot: 36
+    consoleCommands: 
+    - "zmenu open zmenu:shop %player%"
+    item:
+      material: ARROW
+      name: "#fb0000&lA#fc1212&lT#fc2424&lR#fd3636&lA#fd4848&lS"
+      lore: "#eeeeee¡Click para volver a la tienda!"

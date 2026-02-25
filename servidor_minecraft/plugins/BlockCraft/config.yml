@@ -1,0 +1,63 @@
+# Configuración principal de BlockCraft
+# Versión: 1.0
+
+# ========== CONFIGURACIÓN DE MENSAJES ==========
+messages:
+  prevent_BlockBreak: '&c¡No puedes interactuar con este bloque aquí!'
+  no_permission: '&4¡No tienes permiso para hacer esto!'
+
+# ========== SISTEMA DE RANGOS Y CHAT ==========
+luckperms:
+  # Formato de mensajes de conexión/desconexión
+  join-format: '&8[&a+&8] %prefix% %player% &fse ha unido'
+  quit-format: '&8[&c-&8] %prefix% %player% &fse ha ido'
+  default-rank-format: '&7[%group%]'
+
+# Formatos de rango con gradientes
+rank-formats:
+  admin: '&#FF0000A&#FF5500D&#FFAA00M&#FFFF00I&#00FF00N'
+  mod: '&#0000FFM&#5500FFO&#AA00FFD&#FF00FFE&#FF00AAR'
+  vip: '&#00FF00V&#55FF00I&#AAFF00P'
+  default: '&7[Member]' # Rango por defecto
+
+# ========== MENSAJES DE BIENVENIDA ==========
+welcome-message:
+  enabled: true
+  lines:
+  - '&a&m                                             '
+  - ''
+  - '&f¡Bienvenido &b&l%player% &fal servidor'
+  - '&fEsperamos que disfrutes del server :)'
+  - ''
+  - '&a&m                                             '
+
+# ========== CONFIGURACIÓN DE MUNDOS ==========
+#                ¡proximamente!
+
+# ========== SISTEMA DE BLOQUEOS ==========
+block-control:
+  blocked-blocks: # Bloques prohibidos en mundos protegidos
+    - TNT
+    - LAVA_BUCKET
+    - WATER_BUCKET
+    - FIRE_CHARGE
+  
+  blocked-worlds: # Mundos bloqueados (blocked-blocks)
+    - pete
+  
+  allowed-blocks: # Bloques permitidos en mundos de construcción
+    - STONE
+    - DIRT
+    - GRASS_BLOCK
+    - WOOD
+  
+  allowed-worlds: # Mundos permitidos (allowed-blocks)
+    - pete1
+  
+  blocked-words: # Palabras prohibidas en el chat
+    - insulto1
+    - insulto2
+    - palabra_prohibida
+rtp:
+  cooldown: 0
+lobby-world: lobby

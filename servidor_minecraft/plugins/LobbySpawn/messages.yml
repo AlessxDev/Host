@@ -1,0 +1,109 @@
+# messages.yml - editable language file for LobbySpawn
+# - Each entry has:
+#     enabled: true|false  -> whether the message is sent at all
+#     text: "<message>"    -> the message text (use & color codes, e.g. &a)
+# - Edit texts or disable messages here. Placeholders are NOT implemented by default,
+#   but notes include suggested placeholders you could add later (eg. {world}, {x}, etc.)
+
+messages:
+  # Sent to console and/or operator(s) when plugin is enabled on server startup.
+  # Who: Console (and any admin watchers).
+  # When: onEnable()
+  plugin-enable:
+    enabled: true
+    text: "&aLobbySpawn enabled."
+
+  # Sent to console and/or operator(s) when plugin is disabled (server stop / plugin reload).
+  # Who: Console.
+  # When: onDisable()
+  plugin-disable:
+    enabled: true
+    text: "&cLobbySpawn disabled."
+
+  # Shown to a player when they try to use /lobby but the lobby has not yet been set.
+  # Who: Player.
+  # When: when isLobbySet() == false and player runs /lobby
+  # Suggestion placeholders: none needed.
+  lobby-not-set:
+    enabled: true
+    text: "&eLobby is not set yet. An admin must use /lobby set or /setlobby."
+
+  # Sent to a player immediately after they successfully teleport to the lobby via command.
+  # Who: Player.
+  # When: after teleportToLobby(...) returns true when invoked by a command
+  # Suggestion placeholders you might add later: {world}, {x}, {y}, {z}
+  lobby-teleported:
+    enabled: false
+    text: "&aYou have been teleported to the lobby."
+
+  # Optional message sent when a player is teleported to the lobby on join.
+  # Default: disabled (many servers prefer silent joins).
+  # Who: Player.
+  # When: teleport happens during PlayerJoinEvent
+  # Set enabled: true to enable join-teleport messages.
+  lobby-teleported-join:
+    enabled: false
+    text: "&aYou were teleported to the lobby on join."
+
+  # Sent to a player (or console acknowledgement) after an admin sets the lobby location.
+  # Who: Player (admin) and console (plugin also logs).
+  # When: /lobby set or /setlobby used successfully
+  # Suggestion placeholders: {world}, {x}, {y}, {z} (not present now)
+  lobby-set:
+    enabled: true
+    text: "&aLobby location set!"
+
+  # Sent when an attempt to set the lobby is blocked because the player is standing in a blacklisted world.
+  # Who: Player (the admin who tried to set).
+  # When: /lset or /lobby set while player.world is in blacklist-worlds
+  lobby-set-disabled-world:
+    enabled: true
+    text: "&cYou cannot set the lobby from this world."
+
+  # Sent when the configured lobby world cannot be found on the server.
+  # Who: Player.
+  # When: teleport attempted but Bukkit.getWorld(worldName) returns null
+  lobby-world-not-found:
+    enabled: true
+    text: "&cError: Lobby world not found!"
+
+  # Sent to a player who tries to use commands that are disabled in the world they are currently in.
+  # Who: Player.
+  # When: player is standing in a blacklisted world and runs /lobby, /lset, etc.
+  command-disabled-in-world:
+    enabled: true
+    text: "&cThis command is disabled while you are in this world."
+
+  # Sent when the player last left the server in a blacklisted world and is thus not teleported to lobby on join.
+  # Who: Player (on join).
+  # When: teleportToLobby() skipped because players.yml says last-world is blacklisted
+  blacklisted-left:
+    enabled: true
+    text: "&aYou left in a blacklisted world previously; not teleporting to lobby."
+
+  # Generic "only players" message for commands that require an in-game player (no console).
+  # Who: CommandSender (console sees this if they try to run player-only commands)
+  # When: a console or command block tries to run an in-game-only command
+  only-players:
+    enabled: true
+    text: "&cOnly players can use this command."
+
+  # Variation used when only in-game players can set the lobby (explicit message for /setlobby).
+  only-players-set:
+    enabled: true
+    text: "&cOnly in-game players can set the lobby location."
+
+  # Generic permission-denied message (used when sender lacks lobby.admin or other perms).
+  no-permission:
+    enabled: true
+    text: "&cYou do not have permission to use this command."
+
+  # Sent when an admin reloads the plugin config/message files via /lobby reload
+  reload:
+    enabled: true
+    text: "&aLobby configuration reloaded!"
+
+  # Sent when admin runs the align command to snap yaw/x/z to grid
+  align:
+    enabled: true
+    text: "&aLobby aligned!"

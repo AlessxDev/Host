@@ -1,0 +1,81 @@
+##########################################
+# SetSpawn Plugin                        #
+# Author: Manole                         #
+# Version: 5.5.1                         #
+# For more features check out:           #
+# https://spigotmc.org/resources/103629/ #
+##########################################
+
+############################################################################
+# Available placeholders:                                                  #
+# %del% Seconds remaining until you can /spawn again                       #
+# %sendername% Name of sender                                              #
+# %targetname% Name of target                                              #
+############################################################################
+
+# Message shown when a player lacks permission
+No-Permission-Message: '&#00fb4e&lB&#05f861&lL&#09f475&lO&#0ef188&lC&#13ee9c&lK&#17eaaf&lC&#1ce7c3&lR&#21e4d6&lA&#25e0ea&lF&#2addfd&lT& &#effd82No tienes permitido hacer esto aquí!'
+
+# Messsage when player teleports to spawn
+Spawn-Message:
+  Enabled: true
+  Message: ' &#00fb4e&lB&#05f861&lL&#09f475&lO&#0ef188&lC&#13ee9c&lK&#17eaaf&lC&#1ce7c3&lR&#21e4d6&lA&#25e0ea&lF&#2addfd&lT &#effd82Bienvenido al Spawn!'
+
+# Message shown when executing /spawn
+Teleport-Message:
+  Enabled: true
+  #The message below will stop showing for people with spawn.bypass permission.
+  Disabled-for-Bypass: true
+  Message: ' &#00fb4e&lB&#05f861&lL&#09f475&lO&#0ef188&lC&#13ee9c&lK&#17eaaf&lC&#1ce7c3&lR&#21e4d6&lA&#25e0ea&lF&#2addfd&lT &#effd82Teletransportando al Spawn...'
+
+# Cooldown settings for /spawn
+Cooldown-For-Spawn-Cmd:
+  Enabled: true
+  Enabled-Message: true
+  Message: ' &#00fb4e&lB&#05f861&lL&#09f475&lO&#0ef188&lC&#13ee9c&lK&#17eaaf&lC&#1ce7c3&lR&#21e4d6&lA&#25e0ea&lF&#2addfd&lT &#effd82Espera %del% segundos más para usar /spawn otra vez!'
+  Delay: 10
+
+# Cancel teleport on movement
+Cancel-On-Move:
+  Enabled: true
+  Enabled-Message: true
+  Message: ' &#00fb4e&lB&#05f861&lL&#09f475&lO&#0ef188&lC&#13ee9c&lK&#17eaaf&lC&#1ce7c3&lR&#21e4d6&lA&#25e0ea&lF&#2addfd&lT &#effd82Teletransportación cancelada!'
+
+# Effect on spawn arrival
+Spawn-Effect:
+  Enabled: true
+  Effect-Name: ENDER_SIGNAL
+
+# Sound on spawn arrival
+Spawn-Sound:
+  Enabled: true
+  Sound-Name: ENTITY_ENDER_PEARL_THROW
+
+# Handle void teleport
+Void-To-Spawn:
+  Enabled: false
+  Enabled-Message: false
+  Message: '&0[&fSetSpawn&0]&r: &2Teleported to spawn from void.'
+
+# Force-teleport another player at spawn
+Force-Spawn:
+  Enabled-message-target: false
+  Message-target: '&0[&fSetSpawn&0]&r: &eYou have been teleported to the spawn by &2%sendername%'
+  Enabled-message-sender: true
+  Message-sender: ' &#00fb4e&lB&#05f861&lL&#09f475&lO&#0ef188&lC&#13ee9c&lK&#17eaaf&lC&#1ce7c3&lR&#21e4d6&lA&#25e0ea&lF&#2addfd&lT &#effd82Acabas de teletransportar a &e%targetname% &#effd82Hacia el spawn!'
+  Player-Not-Online-Message: '&0[&fSetSpawn&0]&r: &cThat player is not online!'
+
+# Countdown before actual teleport (in seconds)
+Countdown: 5
+
+# Admin feedback
+Set-Spawn-Message: '&0[&fSetSpawn&0]&r: &eYou have set the spawn!'
+Set-First-Join-Spawn-Message: '&0[&fSetSpawn&0]&r: &eYou have set the first join spawn!'
+No-Spawn-Message: '&0[&fSetSpawn&0]&r: &cThere has no spawn been set yet!'
+Reload-Message: '&0[&fSetSpawn&0]&r: &2Config Reloaded!'
+
+# General spawn settings
+On-Join-Spawn: false
+On-First-Join-Spawn: false
+Respawn-At-Spawn: true
+Override-Bedspawn-On-Respawn: true
